@@ -1,0 +1,50 @@
+<html>
+<head>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link href="css/app.css" rel="stylesheet"></link>
+</head>
+	<div class="generic-container">
+
+		<div class="panel panel-default">
+			<!-- Default panel contents -->
+			<div class="panel-heading">
+				<span class="lead">Book details </span>
+				<button type="button" ng-click="showAddBookForm()"
+									class="btn btn-info btn-lg pull-right" 
+									style="padding-bottom: 0">
+									<span class="glyphicon glyphicon-plus"></span> 
+									Add</button>
+			</div>
+			<div class="tablecontainer">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th class="col-md-3">Title</th>
+							<th class="col-md-5">Author</th>
+							<th class="col-md-4"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="book in books">							
+							<td class="col-md-3"><span ng-bind="book.title"></span></td>
+							<td class="col-md-5"><span ng-bind="book.author"></span></td>
+							
+							<td class="col-md-4">
+								<button type="button" ng-click="showEditBookForm(book.id)"
+									class="btn btn-success custom-width">Edit</button>
+								<button type="button" ng-click="detail(book.id)" 
+								ui-sref="books/detail({ bookId : book.id })"
+									class="btn btn-primary custom-width">Detail</button>
+									<button type="button" ng-click="showDeleteConfirm(book)"
+									class="btn btn-danger custom-width">Remove</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+</html>
